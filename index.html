@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>跨領域學習知識庫 | LLM Wiki</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge badge-cs">LLM Wiki Architecture • AGENTS.md Driven</span>
+      <h1>跨領域學習與演算法知識庫</h1>
+      <p>基於 <code>AGENTS.md</code> 規範建構的個人知識編譯系統：將原始課堂題目與筆記（<code>raw/</code>）編譯為結構化知識（<code>wiki/</code>）與靜態網頁（<code>pages/</code>）。</p>
+    </header>
+
+    <h2 class="section-title">核心課程知識庫 (Core Courses)</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div>
+          <span class="badge badge-accounting">初級會計學 Accounting</span>
+          <h3>銀行調節表 (Bank Reconciliation)</h3>
+          <p>解析公司帳面與銀行對帳單差異，整理單月編製原則、調節方向與記帳錯誤更正分錄。</p>
+        </div>
+        <a class="btn-link" href="pages/bank-reconciliation.html">閱讀完整筆記 →</a>
+      </div>
+    </div>
+
+    <h2 class="section-title">演算法與程式設計 (Algorithms & C++)</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div>
+          <span class="badge badge-cs">C++ STL / 競程演算法</span>
+          <h3>std::sort 與自訂比較函式</h3>
+          <p>以 UVa 11321 為例，拆解 O(N log N) 多條件排序、嚴格弱序規則與負數取餘數陷阱。</p>
+        </div>
+        <a class="btn-link" href="pages/std-sort-custom-cmp.html">閱讀完整筆記 →</a>
+      </div>
+    </div>
+
+    <h2 class="section-title">最近編譯維護日誌 (Wiki Changelog)</h2>
+    <ul class="log-list">
+      <li>[2026-11-15] ingest | UVa 11321 自訂排序題目 → 生成 pages/std-sort-custom-cmp.html 並同步索引</li>
+      <li>[2026-11-15] ingest | Terrell Ltd. 銀行調節表案例 → 生成 pages/bank-reconciliation.html 並同步索引</li>
+      <li>[2026-11-15] init | 建立 AGENTS.md 專案規範與三層式知識庫架構</li>
+    </ul>
+  </div>
+</body>
+</html>
