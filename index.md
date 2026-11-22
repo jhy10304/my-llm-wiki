@@ -13,3 +13,13 @@
 
 ## 跨主題綜合分析 (Syntheses)
 - *(尚無條目)*
+```markdown
+  - [[sources/src-sortcpp3]] - iThome 鐵人賽 `std::sort` Introsort 原理與 Lambda 多條件教學摘要
+
+  ```markdown
+  - [[sources/src-sortcpp4]] - Yui Huang 筆記：傳統陣列 vs vector 語法與 rbegin 降序技巧摘要
+
+  - [[concepts/stable-sort-and-pitfalls]] - 穩定排序 `stable_sort` 差異與 `cmp` 嚴格弱序 (`<=`) 致命地雷
+  - [[sources/src-sortcpp5]] - 演算法筆記：排序流派、字典序、穩定性與比較函數規範摘要
+
+  - [[syntheses/sort-tutorial-outline]] - C++ `std::sort` 教學簡報 6 頁大綱與 Lint 檢查紀錄

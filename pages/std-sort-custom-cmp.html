@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>std::sort 與自訂比較函式 | 跨領域學習知識庫</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">← 返回知識庫總目錄</a>
+    </div>
+
+    <article class="article-box">
+      <span class="badge badge-cs">演算法與 C++ • 實體頁 (Entity)</span>
+      <h1>std::sort 與自訂比較函式 (Custom Comparator)</h1>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        資料來源：<code>raw/problems/uva-11321.md</code> ｜ 時間複雜度：<code>O(N log N)</code> ｜ 最後更新：2026-11-15
+      </p>
+
+      <div class="tldr-box">
+        <strong>核心摘要 (TL;DR)：</strong>
+        <ul style="margin-left: 1.25rem; margin-top: 0.4rem;">
+          <li><code>std::sort</code> 採用內省排序（Introsort），平均與最差時間複雜度皆為 <strong>O(N log N)</strong>。</li>
+          <li>比較函式 <code>cmp(a, b)</code> 回傳 <code>true</code> 代表 <code>a</code> 排在 <code>b</code> 前面，兩者相等時必須回傳 <code>false</code>。</li>
+        </ul>
+      </div>
+
+      <div class="warning-box">
+        <strong>C++ 負數取餘數邊界陷阱：</strong><br />
+        在 C++ 中，負奇數除以 2 的餘數為 <code>-1</code>（例如 <code>-5 % 2 == -1</code>）。判斷奇數時<strong>不可</strong>寫 <code>x % 2 == 1</code>，必須使用 <code>x % 2 != 0</code>！
+      </div>
+
+      <h2>標準實作範例（UVa 11321 多條件排序）</h2>
+      <pre><code>#include &lt;algorithm&gt;
+using namespace std;
+
+int M;
+
+bool cmp(int a, int b) {
+    // 1. 依照除以 M 的餘數由小到大排序（保留 C++ 負數餘數特性）
+    if (a % M != b % M) {
+        return a % M &lt; b % M;
+    }
+    // 2. 餘數相同時，奇數優先於偶數
+    bool a_odd = (a % 2 != 0);
+    bool b_odd = (b % 2 != 0);
+    if (a_odd != b_odd) {
+        return a_odd;
+    }
+    // 3. 同為奇數則大到小；同為偶數則小到大
+    return a_odd ? (a &gt; b) : (a &lt; b);
+}</code></pre>
+
+      <div class="related-box">
+        <strong>關聯知識節點 (Related Wiki Pages)：</strong>
+        <p style="margin-top: 0.4rem;">
+          跨領域延伸閱讀：<a class="btn-link" href="bank-reconciliation.html">銀行調節表與規則分類表（初級會計學） →</a>
+        </p>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

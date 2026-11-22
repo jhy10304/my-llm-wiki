@@ -46,3 +46,19 @@
 └── pages/                              # [Layer 3: 網頁展示層 - 對應 Wiki 內容的 HTML]
     ├── bank-reconciliation.html
     └── std-sort-custom-cmp.html
+
+## 教學知識庫與簡報生成規範 (2026-11-22 討論確認新增)
+
+### 1. 概念頁 (`wiki/concepts/`) 強制教學模板
+為確保後續能直接產出「初學者看得懂的教學型 HTML 簡報」，所有 `concepts/` 下的頁面除核心定義外，**必須**包含以下三個教學區塊：
+- **💡 白話生活比喻 (Analogy)**：用日常情境解釋抽象概念，禁止堆砌術語。
+- **💻 程式碼對照範例 (Code Comparison)**：提供可直接編譯的極簡 C++ 範例。
+- **⚠️ 新手常見地雷 (Common Pitfalls)**：明確列出初學者最容易寫錯的語法或邏輯錯誤。
+
+### 2. Ingest 增量合併與檢查規則
+- 每次僅處理 **1 篇** `raw/problems/` 原始資料，嚴禁一次批次敷衍。
+- 寫入 `concepts/` 時必須比對既有內容：合併重複概念、補充細節，若發現不同來源說法衝突須明確標註。
+- 每次操作完畢，必須同步更新 `wiki/index.md` 與 `wiki/log.md`（格式：`## [YYYY-MM-DD] ingest | 來源名稱 - 異動摘要`）。
+
+### 3. 簡報生成前健康檢查 (Lint Gate)
+- 在執行 `Query` 產出 HTML 簡報前，必須先經過 `Lint` 檢查並建立 `wiki/syntheses/sort-tutorial-outline.md` 中介大綱，確認無未解釋之專有名詞後才可進行前端渲染。
